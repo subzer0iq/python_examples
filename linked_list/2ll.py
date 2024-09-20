@@ -4,6 +4,7 @@ class Node():
     def __init__(self, data):
         self.data = data
         self.next = None
+        self.prev = None
 
 class LinkedList:
     def __init__(self):
@@ -12,6 +13,11 @@ class LinkedList:
 
     def prepend(self, data):
         new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            self.end= hew_node
+        #new_node.next = self.head
+        self.head.prev = new_node
         new_node.next = self.head
         self.head = new_node
 
@@ -23,6 +29,7 @@ class LinkedList:
             return
         #current_node = self.head
         self.end.next = new_node
+        new_node.prev = self.end
         self.end = new_node
         #while current_node.next:
         #    current_node = current_node.next
@@ -31,7 +38,7 @@ class LinkedList:
     def show(self):
         current_node = self.head
         while current_node:
-            print(current_node.data, end=' => ' if current_node.next else '\n')
+            print(current_node.data, end=' <=> ' if current_node.next else '\n')
             current_node = current_node.next
 
 ll = LinkedList()
