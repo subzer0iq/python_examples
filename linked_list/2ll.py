@@ -36,10 +36,10 @@ class LinkedList:
         #current_node.next = new_node
 
     def show(self):
-        current_node = self.head
+        current_node = self.end
         while current_node:
-            print(current_node.data, end=' <=> ' if current_node.next else '\n')
-            current_node = current_node.next
+            print(current_node.data, end=' <=> ' if current_node.prev else '\n')
+            current_node = current_node.prev
 
 ll = LinkedList()
 ll.append(234)
